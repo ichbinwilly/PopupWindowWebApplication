@@ -1,0 +1,32 @@
+﻿@model PopupWindowWebApplication.Controllers.Person
+@{
+    ViewBag.Title = "Home Page" ;
+}
+<p>@DateTime.Now</p>
+<p>this is content.this is content.this is content.this is content.this is content.</p>
+<input id="myButton"type="button" value="open" />
+<div id="dialog-modal" class="modal" title="test">    
+    @using (Ajax.BeginForm("Index", new AjaxOptions { UpdateTargetId = "ID", OnSuccess = "onSuccess" }))
+    {
+        <div>
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.FirstName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.FirstName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(m => m.LastName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.LastName)
+                </div>
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            </fieldset>
+        </div>
+    }
+</div>
+
